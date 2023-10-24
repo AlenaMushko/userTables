@@ -10,6 +10,8 @@ import {useRouter} from 'next/navigation';
 import {IUserLogin} from "@/interfaces";
 import {ContainerForForm} from "@/components";
 import {LoginValidators} from "@/validators/LoginValidators";
+import {useAppDispatch} from "@/hooks ";
+import {userAction} from "@/redux/slices/usersSlice";
 
 interface IProps{
     setIsAlert: Dispatch<SetStateAction<boolean>>
@@ -25,6 +27,7 @@ const LoginForm: React.FC<IProps> = ({setIsAlert}) => {
         resolver: joiResolver(LoginValidators),
     });
 
+    const dispatch = useAppDispatch();
     const router = useRouter();
 
     const handleLogin = async (user: IUserLogin) => {
@@ -36,7 +39,7 @@ const LoginForm: React.FC<IProps> = ({setIsAlert}) => {
 
             if (user.password === password && user.username === username) {
                 reset();
-                localStorage.setItem('isLogin', 'true')
+                dispatch(userAction.setIsLogin(true));
                 router.push('/table');
             } else {
                setIsAlert(true)

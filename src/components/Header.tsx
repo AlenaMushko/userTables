@@ -1,5 +1,5 @@
 'use client';
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext} from 'react';
 import Image from "next/image";
 import Link from "next/link";
 import {usePathname, useRouter} from "next/navigation";
@@ -10,30 +10,27 @@ import Button from "@mui/material/Button";
 import {AppRoutes} from "@/routing /appRoutes";
 import {MyContainer} from "@/components/MyContainer";
 import {ThemeContext, ThemeSwitcher} from "@/themes";
-import {useAppSelector} from "@/hooks ";
+import {useAppDispatch, useAppSelector} from "@/hooks ";
+import {userAction} from "@/redux/slices/usersSlice";
 
 
 export const Header: React.FC = () => {
+    const dispatch = useAppDispatch();
+
+    const {isLogin} = useAppSelector(state => state.users);
+
     const { isLoading } = useAppSelector((state) => state.users);
 
-    const [isLogin, setIsLogin] = useState<boolean>(() => {
-        const storedValue = window.localStorage.getItem('isLogin');
-        return storedValue ? JSON.parse(storedValue) : 'false';
-    });
     const router = useRouter();
     const {theme} = useContext(ThemeContext);
     const pathname = usePathname();
     const themeColor = useTheme();
 
-    useEffect(() => {
-        const storedValue = window.localStorage.getItem('isLogin');
-        setIsLogin(storedValue ? JSON.parse(storedValue) : false);
-    }, [window.localStorage.getItem('isLogin')]);
-
     const handleLogout = () => {
-        setIsLogin(false)
+        dispatch(userAction.setIsLogin(false))
         router.push('/login');
     }
+
     return (<>
         <MyContainer>
             <Box component='nav' sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
