@@ -3,16 +3,19 @@ import React, {useContext, useEffect, useState} from 'react';
 import Image from "next/image";
 import Link from "next/link";
 import {usePathname, useRouter} from "next/navigation";
-import {Avatar, Box, Typography} from "@mui/material";
+import {Avatar, Box, Skeleton, Typography} from "@mui/material";
 import {useTheme} from "@mui/system";
 import Button from "@mui/material/Button";
 
 import {AppRoutes} from "@/routing /appRoutes";
 import {MyContainer} from "@/components/MyContainer";
 import {ThemeContext, ThemeSwitcher} from "@/themes";
+import {useAppSelector} from "@/hooks ";
 
 
 export const Header: React.FC = () => {
+    const { isLoading } = useAppSelector((state) => state.users);
+
     const [isLogin, setIsLogin] = useState<boolean>(() => {
         const storedValue = window.localStorage.getItem('isLogin');
         return storedValue ? JSON.parse(storedValue) : 'false';
@@ -31,7 +34,7 @@ export const Header: React.FC = () => {
         setIsLogin(false)
         router.push('/login');
     }
-    return (
+    return (<>
         <MyContainer>
             <Box component='nav' sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
                 {theme.palette.mode === 'light'
@@ -80,5 +83,7 @@ export const Header: React.FC = () => {
                 )}
             </Box>
         </MyContainer>
+            {isLoading &&  <Skeleton variant="rectangular"  sx={{ bgcolor: themeColor.palette.text.secondary }}/>}
+        </>
     )
 }

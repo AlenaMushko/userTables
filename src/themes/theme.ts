@@ -18,7 +18,7 @@ const lightTheme = createTheme({
         text: {
             primary: '#03071f',
             secondary: '#304ffe',
-            // disabled: '#052a0b',
+            disabled: '#6179f9',
         },
     },
 

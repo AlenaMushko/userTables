@@ -37,7 +37,7 @@ const LoginForm: React.FC<IProps> = ({setIsAlert}) => {
             if (user.password === password && user.username === username) {
                 reset();
                 localStorage.setItem('isLogin', 'true')
-                router.push('/users');
+                router.push('/table');
             } else {
                setIsAlert(true)
             }
