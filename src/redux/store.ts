@@ -3,7 +3,6 @@ import {configureStore} from "@reduxjs/toolkit";
 import {userReducer} from "@/redux/slices/usersSlice";
 
 
-
 const store = configureStore({
     reducer: {
         users: userReducer,

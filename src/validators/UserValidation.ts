@@ -11,7 +11,7 @@ export const UserValidators = Joi.object({
         'string.max': 'Email must be at most {#limit} characters',
         'string.required': 'Email is required',
     }),
-    birthday_date: Joi.date().iso().required()
+    birthday_date: Joi.string().required()
         .messages({
             'date.base': 'Birthday must be a valid date.',
             'date.iso': 'Birthday must be in ISO 8601 format.',

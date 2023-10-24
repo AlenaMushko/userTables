@@ -1,8 +1,8 @@
 'use client';
-import { ThemeProvider } from '@mui/material/styles';
-import React, { createContext, useEffect, useState, ReactNode } from 'react';
+import {ThemeProvider} from '@mui/material/styles';
+import React, {createContext, useEffect, useState, ReactNode} from 'react';
 
-import { darkTheme, lightTheme } from './theme';
+import {darkTheme, lightTheme} from './theme';
 
 interface IThemeContext {
     theme: typeof lightTheme | typeof darkTheme;
@@ -11,14 +11,15 @@ interface IThemeContext {
 
 const ThemeContext = createContext<IThemeContext>({
     theme: lightTheme,
-    toggleTheme: () => {},
+    toggleTheme: () => {
+    },
 });
 
 interface MyThemeProviderProps {
     children: ReactNode;
 }
 
-const MyThemeProvider: React.FC<MyThemeProviderProps> = ({ children }) => {
+const MyThemeProvider: React.FC<MyThemeProviderProps> = ({children}) => {
     const [themeMode, setThemeMode] = useState<string>('light');
 
     useEffect(() => {
@@ -43,10 +44,10 @@ const MyThemeProvider: React.FC<MyThemeProviderProps> = ({ children }) => {
     };
 
     return (
-        <ThemeContext.Provider value={{ theme: currentTheme, toggleTheme }}>
+        <ThemeContext.Provider value={{theme: currentTheme, toggleTheme}}>
             <ThemeProvider theme={currentTheme}>{children}</ThemeProvider>
         </ThemeContext.Provider>
     );
 };
 
-export { ThemeContext, MyThemeProvider };
+export {ThemeContext, MyThemeProvider};

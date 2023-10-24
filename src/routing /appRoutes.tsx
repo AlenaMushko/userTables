@@ -3,4 +3,5 @@ export const AppRoutes = {
     LOGIN: '/login',
     REGISTER: '/register',
     TABLE: '/table',
+    USER_ID: '/user/{userId}',
 };

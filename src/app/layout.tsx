@@ -1,10 +1,9 @@
 'use client';
-
-import './globals.css';
 import {Container} from '@mui/system';
 import Head from 'next/head';
 import {Provider} from "react-redux";
 
+import './globals.css';
 import {Header} from '@/components';
 import {MyThemeProvider} from '@/themes';
 import {inter} from './metadata.config';
@@ -22,7 +21,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
                 <body className={inter.className}>
                 <Header/>
 
-                <Container component="main" sx={{marginTop: '15vh'}}>
+                <Container component="main" sx={{marginTop: '5vh'}}>
                     {children}
                 </Container>
                 </body>

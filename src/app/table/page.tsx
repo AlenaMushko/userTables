@@ -1,18 +1,20 @@
 'use client';
-
 import React, {useEffect, useState} from "react";
 import {useRouter} from 'next/navigation';
 import Box from "@mui/material/Box";
 import {TextField, Typography} from "@mui/material";
+import {useTheme} from "@mui/system";
 
 import {MyContainer, UsersTable} from "@/components";
 import {useAppDispatch, useAppSelector} from "@/hooks ";
 import {userAction} from "@/redux/slices/usersSlice";
 import {MyPagination} from "@/components/MyPagination";
 
+
 const UserPage: React.FC = () => {
     const dispatch = useAppDispatch();
     const router = useRouter();
+    const themeColor = useTheme();
 
     const {isLoading} = useAppSelector((state) => state.users);
     const {isLogin} = useAppSelector(state => state.users);
@@ -65,7 +67,14 @@ const UserPage: React.FC = () => {
                             type="number"
                             value={limit}
                             onChange={handleLimitChange}
-                            sx={{minWidth: '50px', maxWidth: ['100%', '100px']}}
+                            sx={{
+                                minWidth: '50px',
+                                color: themeColor.palette.text.primary,
+                                maxWidth: ['100%', '100px'],
+                                '& .MuiInputLabel-root': {
+                                    color: themeColor.palette.text.primary,
+                                }
+                            }}
                         />
                     </Box>
                 </MyContainer>

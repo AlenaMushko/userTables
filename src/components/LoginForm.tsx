@@ -6,16 +6,16 @@ import {useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
 import {useRouter} from 'next/navigation';
 
-
 import {IUserLogin} from "@/interfaces";
 import {ContainerForForm} from "@/components";
 import {LoginValidators} from "@/validators/LoginValidators";
 import {useAppDispatch} from "@/hooks ";
 import {userAction} from "@/redux/slices/usersSlice";
 
-interface IProps{
+interface IProps {
     setIsAlert: Dispatch<SetStateAction<boolean>>
 }
+
 const LoginForm: React.FC<IProps> = ({setIsAlert}) => {
     const {
         register,
@@ -32,17 +32,15 @@ const LoginForm: React.FC<IProps> = ({setIsAlert}) => {
 
     const handleLogin = async (user: IUserLogin) => {
         try {
-            // const password = 'testpassword123';
-            // const username = 'testuser';
-            const password = '1';
-            const username = '1';
+            const password = 'testpassword123';
+            const username = 'testuser';
 
             if (user.password === password && user.username === username) {
                 reset();
                 dispatch(userAction.setIsLogin(true));
                 router.push('/table');
             } else {
-               setIsAlert(true)
+                setIsAlert(true)
             }
         } catch (error) {
             console.log(error);

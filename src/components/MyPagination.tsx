@@ -7,16 +7,23 @@ interface IProps {
     totalPages: number;
     nextPage: string,
     previousPage: string,
-    setUrl:React.Dispatch<React.SetStateAction<string | null>>;
+    setUrl: React.Dispatch<React.SetStateAction<string | null>>;
     setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export const MyPagination: React.FC<IProps> = ({currentPage, totalPages, setCurrentPage, nextPage, previousPage, setUrl}) => {
+export const MyPagination: React.FC<IProps> = ({
+                                                   currentPage,
+                                                   totalPages,
+                                                   setCurrentPage,
+                                                   nextPage,
+                                                   previousPage,
+                                                   setUrl
+                                               }) => {
     const handlePageChange = (event: React.ChangeEvent<unknown>, newPage: number) => {
         if (newPage > currentPage && nextPage) {
-           setUrl(nextPage);
+            setUrl(nextPage);
         } else if (newPage < currentPage && previousPage) {
-           setUrl(previousPage);
+            setUrl(previousPage);
         }
         setCurrentPage(newPage);
     };

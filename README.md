@@ -1,34 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# User Table Management 🚀
 
-## Getting Started
+###### A seamless interface for user management. With this application, administrators can access, update, and manage user information with ease.
 
-First, run the development server:
+#### Main Features:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+###### User Login: Access the application using the custom credentials.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Username: testuser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### Password: testpassword123
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Interactive User Table: An extensive table fetched from https://technical-task-api.icapgroupgmbh.com/api/ displaying user data.
 
-## Learn More
+###### Update Capability: Seamlessly modify user data with our intuitive interface.
 
-To learn more about Next.js, take a look at the following resources:
+###### Delete Functionality: Remove any user from the table with a simple click.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+###### Built-in Validation: With integrated joi validation, ensure the integrity and validity of user data.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Setup & Installation:
 
-## Deploy on Vercel
+### Clone the repository: git clone https://user-tables.vercel.app/login
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+###### Navigate to the directory: cd user_table
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+###### Install the dependencies: npm install
+
+###### Run the app locally: npm run start
+
+#### Technologies Used:
+
+###### Next.js (v13.5.6)
+
+###### TypeScript (v5.2.2)
+
+###### Redux (v8.1.3)
+
+###### Axios (v1.5.1)
+
+###### MUI Material (v5.14.14)
+
+###### React-hook-form (v7.45.4)
+
+###### Joi (v17.10.0)
+
+### Dive in and manage your users effortlessly with User Table Management! 👤💼

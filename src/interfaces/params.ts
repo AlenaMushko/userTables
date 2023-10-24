@@ -1,4 +1,4 @@
 export type IUsersParams = {
-    url:string | null,
+    url: string | null,
     limit?: number;
 };

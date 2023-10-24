@@ -1,6 +1,5 @@
 'use client';
-
-import { createTheme } from '@mui/material/styles';
+import {createTheme} from '@mui/material/styles';
 
 const lightTheme = createTheme({
     palette: {
@@ -18,7 +17,7 @@ const lightTheme = createTheme({
         text: {
             primary: '#03071f',
             secondary: '#304ffe',
-            disabled: '#6179f9',
+            disabled: '#e6f0ff',
         },
     },
 
@@ -26,9 +25,9 @@ const lightTheme = createTheme({
         MuiTypography: {
             variants: [
                 {
-                    props: { variant: 'button' },
+                    props: {variant: 'button'},
                     style: {
-                        color:'#fff',
+                        color: '#fff',
                         borderRadius: '8px',
                         padding: '12px 28px',
                         transition: 'backgroundColor 0.5s ease',
@@ -39,20 +38,15 @@ const lightTheme = createTheme({
                 },
             ],
         },
-        // MuiLink: {
-        //     styleOverrides: {
-        //         root: {
-        //             color: '#f5f5f5',
-        //             textDecoration: 'none',
-        //             transition: 'border 0.5s ease',
-        //             '&:hover': {
-        //                 borderRadius: '8px',
-        //                 borderColor: '#f5f5f5',
-        //                 border: '1px solid',
-        //             },
-        //         },
-        //     },
-        // },
+        MuiContainer: {
+            styleOverrides: {
+                root: {
+                    '&$root': {
+                        marginTop: '2vh',
+                    },
+                },
+            },
+        },
         MuiButton: {
             styleOverrides: {
                 root: {
@@ -95,22 +89,22 @@ const darkTheme = createTheme({
             main: 'rgb(197, 191, 222)',
         },
         background: {
-            default: '#151223',
+            default: '#272241',
             paper: '#211847',
         },
         text: {
-            primary: '#3b9fed',
+            primary: '#c0d6e7',
             secondary: '#2e2262',
-            // disabled: '#79a4eb',
+            disabled: '#211847',
         },
     },
     components: {
         MuiTypography: {
             variants: [
                 {
-                    props: { variant: 'button' },
+                    props: {variant: 'button'},
                     style: {
-                        color:'#e0e0e0',
+                        color: '#e0e0e0',
                         borderRadius: '8px',
                         padding: '12px 28px',
                         '&:hover': {
@@ -141,4 +135,4 @@ const darkTheme = createTheme({
     },
 });
 
-export { darkTheme, lightTheme };
+export {darkTheme, lightTheme};
