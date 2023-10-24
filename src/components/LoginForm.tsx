@@ -35,7 +35,7 @@ const LoginForm: React.FC<IProps> = ({setIsAlert}) => {
             const password = 'testpassword123';
             const username = 'testuser';
 
-            if (user.password === password && user.username === username) {
+            if (user.password === password.trim() && user.username === username.trim()) {
                 reset();
                 dispatch(userAction.setIsLogin(true));
                 router.push('/table');

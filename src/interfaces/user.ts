@@ -21,9 +21,8 @@ export interface IPagination {
 
 export interface IUser extends IPagination {
     isLogin: boolean,
-    page: number,
     isLoading: boolean,
-    limit?: number,
+    limit: number,
     currentUser: IResult | null,
 }
 

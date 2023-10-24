@@ -13,7 +13,7 @@ const initialState: IUser = {
     currentUser: null,
     isLogin: false,
     isLoading: false,
-    page: 1,
+    limit: 8,
 };
 
 
@@ -75,8 +75,8 @@ const usersSlice = createSlice({
     name: 'usersSlice',
     initialState,
     reducers: {
-        resetPage: (state) => {
-            state.page = 1
+        setLimit: (state, {payload}) => {
+            state.limit = payload
         },
         setIsLogin: (state, {payload}) => {
             state.isLogin = payload
